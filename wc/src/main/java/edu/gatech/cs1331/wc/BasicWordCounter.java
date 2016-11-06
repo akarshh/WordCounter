@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.Comparator;
 
 public class BasicWordCounter implements WordCounter {
 
@@ -33,6 +35,14 @@ public class BasicWordCounter implements WordCounter {
 
     public Set<String> words() {
         return wordCounts.keySet();
+    }
+    public Set<String> wordsRanked() {
+        Comparator<String> rankComparator = (String k1, String k2) -> {
+                return wordCounts.get(k2) - wordCounts.get(k1);
+            };
+        TreeSet<String> rankedWords = new TreeSet<>(rankComparator);
+        rankedWords.addAll(wordCounts.keySet());
+        return rankedWords;
     }
     public int count(String word) {
         return wordCounts.get(word);

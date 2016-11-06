@@ -17,7 +17,7 @@ public class App {
 
         // the for each below is syntax sugar for ^
 
-        for (String word: wc.words()) {
+        for (String word: wc.wordsRanked()) {
             System.out.printf("%s: %d%n", word, wc.count(word));
         }
     }

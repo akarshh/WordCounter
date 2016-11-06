@@ -6,4 +6,5 @@ public interface WordCounter {
 
     Set<String> words();
     int count(String word);
+    Set<String> wordsRanked();
 }
