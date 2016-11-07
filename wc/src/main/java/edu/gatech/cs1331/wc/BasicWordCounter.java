@@ -38,7 +38,8 @@ public class BasicWordCounter implements WordCounter {
     }
     public Set<String> wordsRanked() {
         Comparator<String> rankComparator = (String k1, String k2) -> {
-                return wordCounts.get(k2) - wordCounts.get(k1);
+                int wcDiff = wordCounts.get(k2) - wordCounts.get(k1);
+                return (wcDiff == 0) ? k1.compareTo(k2) : wcDiff;
             };
         TreeSet<String> rankedWords = new TreeSet<>(rankComparator);
         rankedWords.addAll(wordCounts.keySet());
