@@ -1,4 +1,3 @@
-//Runner
 package edu.gatech.cs1331.wc;
 
 import java.util.Iterator;
